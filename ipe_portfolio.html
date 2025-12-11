@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio IPE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 60px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            font-weight: 300;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #00ffff 0%, #ff00ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.1em;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            font-size: 1.4em;
+            font-weight: 300;
+            color: #ffffff;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00ffff 0%, #ff00ff 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(0, 255, 255, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 255, 255, 0.2);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-icon {
+            font-size: 2.5em;
+            filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+        }
+
+        .card-info {
+            flex: 1;
+        }
+
+        .card-title {
+            color: #ffffff;
+            font-size: 1.2em;
+            font-weight: 400;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .card-meta {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85em;
+            display: flex;
+            gap: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .card-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            font-weight: 300;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background: rgba(0, 255, 255, 0.1);
+            border-color: #00ffff;
+            color: #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-meta {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            header {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Portfolio IPE</h1>
+            <p class="subtitle">Iniciación a la Práctica Educativa</p>
+        </header>
+
+        <h2 class="section-title">Trabajos realizados</h2>
+        
+        <div class="grid">
+            <!-- Tarea 1 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-icon">📄</span>
+                    <div class="card-info">
+                        <h3 class="card-title">Tarea 1 - Introducción</h3>
+                        <div class="card-meta">
+                            <span>PDF</span>
+                            <span>Septiembre 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="card-description">
+                    Trabajo de introducción a la asignatura IPE y presentación de objetivos iniciales.
+                </p>
+                <div class="card-actions">
+                    <a href="tus-pdfs/tarea1.pdf" target="_blank" class="btn">Ver PDF</a>
+                </div>
+            </div>
+
+            <!-- Tarea 2 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-icon">📄</span>
+                    <div class="card-info">
+                        <h3 class="card-title">Tarea 2 - Observación</h3>
+                        <div class="card-meta">
+                            <span>PDF</span>
+                            <span>Octubre 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="card-description">
+                    Análisis de observación en el aula y reflexiones sobre la práctica educativa.
+                </p>
+                <div class="card-actions">
+                    <a href="tus-pdfs/tarea2.pdf" target="_blank" class="btn">Ver PDF</a>
+                </div>
+            </div>
+
+            <!-- Tarea 3 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-icon">📄</span>
+                    <div class="card-info">
+                        <h3 class="card-title">Tarea 3 - Metodología</h3>
+                        <div class="card-meta">
+                            <span>PDF</span>
+                            <span>Octubre 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="card-description">
+                    Estudio de diferentes metodologías educativas y su aplicación práctica.
+                </p>
+                <div class="card-actions">
+                    <a href="tus-pdfs/tarea3.pdf" target="_blank" class="btn">Ver PDF</a>
+                </div>
+            </div>
+
+            <!-- Tarea 4 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-icon">📄</span>
+                    <div class="card-info">
+                        <h3 class="card-title">Tarea 4 - Evaluación</h3>
+                        <div class="card-meta">
+                            <span>PDF</span>
+                            <span>Noviembre 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="card-description">
+                    Sistemas de evaluación y herramientas para medir el aprendizaje del alumnado.
+                </p>
+                <div class="card-actions">
+                    <a href="tus-pdfs/tarea4.pdf" target="_blank" class="btn">Ver PDF</a>
+                </div>
+            </div>
+
+            <!-- Tarea 5 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-icon">📄</span>
+                    <div class="card-info">
+                        <h3 class="card-title">Tarea 5 - Unidad Didáctica</h3>
+                        <div class="card-meta">
+                            <span>PDF</span>
+                            <span>Noviembre 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="card-description">
+                    Diseño completo de una unidad didáctica con objetivos, contenidos y actividades.
+                </p>
+                <div class="card-actions">
+                    <a href="tus-pdfs/tarea5.pdf" target="_blank" class="btn">Ver PDF</a>
+                </div>
+            </div>
+
+            <!-- Tarea 6 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-icon">📄</span>
+                    <div class="card-info">
+                        <h3 class="card-title">Tarea 6 - Reflexión Final</h3>
+                        <div class="card-meta">
+                            <span>PDF</span>
+                            <span>Diciembre 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="card-description">
+                    Reflexión personal sobre el aprendizaje adquirido durante el curso IPE.
+                </p>
+                <div class="card-actions">
+                    <a href="tus-pdfs/tarea6.pdf" target="_blank" class="btn">Ver PDF</a>
+                </div>
+            </div>
+
+            <!-- Presentación PowerPoint -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-icon">📊</span>
+                    <div class="card-info">
+                        <h3 class="card-title">Presentación Final</h3>
+                        <div class="card-meta">
+                            <span>PPTX</span>
+                            <span>Diciembre 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="card-description">
+                    Presentación resumen de todos los trabajos realizados durante el curso.
+                </p>
+                <div class="card-actions">
+                    <a href="tus-pdfs/presentacion.pptx" target="_blank" class="btn">Ver Presentación</a>
+                </div>
+            </div>
+
+            <!-- Trabajo Extra -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-icon">📝</span>
+                    <div class="card-info">
+                        <h3 class="card-title">Trabajo de Investigación</h3>
+                        <div class="card-meta">
+                            <span>DOCX</span>
+                            <span>Diciembre 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="card-description">
+                    Investigación sobre innovación educativa y nuevas tendencias pedagógicas.
+                </p>
+                <div class="card-actions">
+                    <a href="tus-pdfs/investigacion.docx" target="_blank" class="btn">Ver Documento</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
