@@ -58,6 +58,7 @@
             margin-bottom: 30px;
             letter-spacing: 2px;
             text-transform: uppercase;
+            text-align: center;
         }
 
         .grid {
@@ -67,6 +68,8 @@
         }
 
         .card {
+            display: flex;
+            flex-direction: column;
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 12px;
@@ -75,6 +78,7 @@
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(10px);
+            min-height: 400px;
         }
 
         .card::before {
@@ -139,9 +143,11 @@
             font-size: 0.95em;
             line-height: 1.6;
             margin-bottom: 25px;
+            text-align: justify;
         }
 
         .card-actions {
+            margin-top: auto;
             display: flex;
             gap: 12px;
         }
@@ -196,7 +202,7 @@
     <div class="container">
         <header>
             <h1>Portfolio IPE</h1>
-            <p class="subtitle">Iniciación a la Práctica Educativa</p>
+            <p class="subtitle">Samuel Macías Sánchez</p>
         </header>
 
         <h2 class="section-title">Trabajos realizados</h2>
@@ -207,15 +213,16 @@
                 <div class="card-header">
                     <span class="card-icon">📄</span>
                     <div class="card-info">
-                        <h3 class="card-title">Tarea 1 - Introducción</h3>
+                        <h3 class="card-title">Tarea 1 - Fortalezas y Debilidades de Nuestra Zona</h3>
                         <div class="card-meta">
                             <span>PDF</span>
-                            <span>Septiembre 2024</span>
+                            <span>22 Septiembre 2025</span>
                         </div>
                     </div>
                 </div>
                 <p class="card-description">
-                    Trabajo de introducción a la asignatura IPE y presentación de objetivos iniciales.
+                    Describe en unas líneas como está la actividad de la programación informática en el momento actual.
+                    Expón tres fortalezas y tres debilidades de la localidad o la zona donde vives, desde el punto de vista económico o empresarial y en relación con el área de la programación informática.
                 </p>
                 <div class="card-actions">
                     <a href="tus-pdfs/tarea1.pdf" target="_blank" class="btn">Ver PDF</a>
@@ -227,16 +234,20 @@
                 <div class="card-header">
                     <span class="card-icon">📄</span>
                     <div class="card-info">
-                        <h3 class="card-title">Tarea 2 - Observación</h3>
+                        <h3 class="card-title">Tarea 2 - Empresa y Tipos</h3>
                         <div class="card-meta">
                             <span>PDF</span>
-                            <span>Octubre 2024</span>
+                            <span>26 Septiembre 2025</span>
                         </div>
                     </div>
                 </div>
-                <p class="card-description">
-                    Análisis de observación en el aula y reflexiones sobre la práctica educativa.
-                </p>
+                <div class="card-description">
+                    <div>Buscar y redactar</div><br>
+                    <div>A. Definición de Empresa</div>
+                    <div>B. Tipos de empresa según su actividad económica</div>
+                    <div>C. Ejemplos de cada tipo de empresa de nuestra zona.</div><br>
+                    <div>(Intentamos mejorar el trabajo anterior: identificar el trabajo con su título y nombre y apellidos del alumno, introducir y situar el trabajo, dar estructura, no ser telegráfico, atención a las faltas de ortografía...).</div>
+                </div>
                 <div class="card-actions">
                     <a href="tus-pdfs/tarea2.pdf" target="_blank" class="btn">Ver PDF</a>
                 </div>
@@ -247,16 +258,22 @@
                 <div class="card-header">
                     <span class="card-icon">📄</span>
                     <div class="card-info">
-                        <h3 class="card-title">Tarea 3 - Metodología</h3>
+                        <h3 class="card-title">Tarea 3 - Tipos de Empresa Según su Forma</h3>
                         <div class="card-meta">
                             <span>PDF</span>
-                            <span>Octubre 2024</span>
+                            <span>3 Octubre 2025</span>
                         </div>
                     </div>
                 </div>
-                <p class="card-description">
-                    Estudio de diferentes metodologías educativas y su aplicación práctica.
-                </p>
+                <div class="card-description">
+                    <div>Buscar en Internet y Redactar:</div><br>
+                    <div>Autonónomos</div>
+                    <div>Sociedad Anónima</div>
+                    <div>Sociedad Limitada</div>
+                    <div>Sociedad Laboral</div>
+                    <div>Sociedad Cooperativa</div><br>
+                    <div>Requisitos, Características, Ventajas e Inconvenientes de Cada Forma Legal</div>
+                </div>
                 <div class="card-actions">
                     <a href="tus-pdfs/tarea3.pdf" target="_blank" class="btn">Ver PDF</a>
                 </div>
@@ -267,15 +284,15 @@
                 <div class="card-header">
                     <span class="card-icon">📄</span>
                     <div class="card-info">
-                        <h3 class="card-title">Tarea 4 - Evaluación</h3>
+                        <h3 class="card-title">Tarea 4 - Objetivos Empresariales</h3>
                         <div class="card-meta">
                             <span>PDF</span>
-                            <span>Noviembre 2024</span>
+                            <span>10 Octubre 2025</span>
                         </div>
                     </div>
                 </div>
                 <p class="card-description">
-                    Sistemas de evaluación y herramientas para medir el aprendizaje del alumnado.
+                    Define y comenta, al menos ocho objetivos empresariales.
                 </p>
                 <div class="card-actions">
                     <a href="tus-pdfs/tarea4.pdf" target="_blank" class="btn">Ver PDF</a>
@@ -287,16 +304,23 @@
                 <div class="card-header">
                     <span class="card-icon">📄</span>
                     <div class="card-info">
-                        <h3 class="card-title">Tarea 5 - Unidad Didáctica</h3>
+                        <h3 class="card-title">Tarea 5 - Como constituir legalmente una empresa</h3>
                         <div class="card-meta">
                             <span>PDF</span>
-                            <span>Noviembre 2024</span>
+                            <span>24 Octubre 2025</span>
                         </div>
                     </div>
                 </div>
-                <p class="card-description">
-                    Diseño completo de una unidad didáctica con objetivos, contenidos y actividades.
-                </p>
+                <div class="card-description">
+                    <div>Como constituir legalmente una empresa</div><br>
+                    <div>1.Trámites administrativos</div>
+                    <div>2.Trámites generales</div>
+                    <div>3.Trámites específicos</div>
+                    <div>4.Trámites en el ayuntamiento</div>
+                    <div>5.Inscripción de la empresa</div>
+                    <div>6.Alta de los trabajadores</div>
+                    <div>7.Convenios de centro de trabajo</div>
+                </div>
                 <div class="card-actions">
                     <a href="tus-pdfs/tarea5.pdf" target="_blank" class="btn">Ver PDF</a>
                 </div>
@@ -307,58 +331,122 @@
                 <div class="card-header">
                     <span class="card-icon">📄</span>
                     <div class="card-info">
-                        <h3 class="card-title">Tarea 6 - Reflexión Final</h3>
+                        <h3 class="card-title">Tarea 6 - Cultura Empresarial</h3>
                         <div class="card-meta">
                             <span>PDF</span>
-                            <span>Diciembre 2024</span>
+                            <span>31 Octubre 2025</span>
                         </div>
                     </div>
                 </div>
-                <p class="card-description">
-                    Reflexión personal sobre el aprendizaje adquirido durante el curso IPE.
-                </p>
+                <div class="card-description">
+                    <div>
+                        Está formada por un conjunto de valores compartidos y debe ser asumida por todos sus integrantes.
+                        La cultura de la empresa debe estar presente en todas sus dependencias y a todos los niveles.
+                    </div><br>
+                    <div>Los tres elementos de una cultura de empresa serían:</div><br>
+                    <div>1.Misión: Propósito último que mueve a la empresa.</div>
+                    <div>2.Valores: Relaciones personales, ética, respeto al medio ambiente.</div>
+                    <div>3.Políticas: Líneas de acción concretas de la empresa.</div><br>
+                    <div>Elige una empresa, y desarrolla la misión, valores y políticas de esa empresa.</div>
+                </div>
                 <div class="card-actions">
                     <a href="tus-pdfs/tarea6.pdf" target="_blank" class="btn">Ver PDF</a>
                 </div>
             </div>
 
-            <!-- Presentación PowerPoint -->
+            <!-- Tarea 7 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="card-icon">📊</span>
+                    <span class="card-icon">📄</span>
                     <div class="card-info">
-                        <h3 class="card-title">Presentación Final</h3>
+                        <h3 class="card-title">Tarea 7 - Marketing en la Empresa</h3>
                         <div class="card-meta">
-                            <span>PPTX</span>
-                            <span>Diciembre 2024</span>
+                            <span>PDF</span>
+                            <span>7 Noviembre 2025</span>
                         </div>
                     </div>
                 </div>
-                <p class="card-description">
-                    Presentación resumen de todos los trabajos realizados durante el curso.
-                </p>
+                <div class="card-description">
+                    <div>1.Estudio de Diferentes Páginas Web con Especial Calidad</div>
+                    <div>2.Asistentes para Crear tu Propia Página Web</div>
+                    <div>3.Bancos de Fotografías</div>
+                    <div>4.Alojamientos Web Gratuitos</div>
+                    <div>5.Proceso para Adquirir un Dominio</div>
+                    <div>6.Redes Sociales Como Apoyo a una Página Web</div>
+                </div>
                 <div class="card-actions">
-                    <a href="tus-pdfs/presentacion.pptx" target="_blank" class="btn">Ver Presentación</a>
+                    <a href="tus-pdfs/tarea3.pdf" target="_blank" class="btn">Ver PDF</a>
                 </div>
             </div>
 
-            <!-- Trabajo Extra -->
+            <!-- Tarea 8 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="card-icon">📝</span>
+                    <span class="card-icon">📄</span>
                     <div class="card-info">
-                        <h3 class="card-title">Trabajo de Investigación</h3>
+                        <h3 class="card-title">Tarea 8 - Preparación de una Entrevista</h3>
                         <div class="card-meta">
-                            <span>DOCX</span>
-                            <span>Diciembre 2024</span>
+                            <span>PDF</span>
+                            <span>14 Noviembre 2025</span>
                         </div>
                     </div>
                 </div>
-                <p class="card-description">
-                    Investigación sobre innovación educativa y nuevas tendencias pedagógicas.
-                </p>
+                <div class="card-description">
+                    <div>Una entrevista de trabajo puede determinar conseguir o no ese trabajo. La entrevista puede prepararse.</div><br>
+                    <div>Busca en internet:</div>
+                    <div>1.Consejos para el desarrollo de una entrevista.</div>
+                    <div>2.Preguntas frecuentes</div>
+                    <div>3.Preguntas trampa en una entrevista</div>
+                </div>
                 <div class="card-actions">
-                    <a href="tus-pdfs/investigacion.docx" target="_blank" class="btn">Ver Documento</a>
+                    <a href="tus-pdfs/tarea3.pdf" target="_blank" class="btn">Ver PDF</a>
+                </div>
+            </div>
+
+            <!-- Tarea 9 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-icon">📄</span>
+                    <div class="card-info">
+                        <h3 class="card-title">Tarea 9 - Curriculum Vitae</h3>
+                        <div class="card-meta">
+                            <span>PDF</span>
+                            <span>21 Noviembre 2025</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-description">
+                    <div>Busca consejos o sugerencias para mejorar tu currículum, tanto en su contenido como en su presentación. Recoge esos consejos por escrito.</div><br>
+                    <div>Presenta tu propio currículum.</div>
+                </div>
+                <div class="card-actions">
+                    <a href="tus-pdfs/tarea3.pdf" target="_blank" class="btn">Ver PDF</a>
+                </div>
+            </div>
+
+            <!-- Tarea 10 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-icon">📄</span>
+                    <div class="card-info">
+                        <h3 class="card-title">Tarea 10 - Empresa e Innovación</h3>
+                        <div class="card-meta">
+                            <span>PDF</span>
+                            <span>28 Noviembre 2025</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-description">
+                    <div>1.¿Cuál es la razón por la que gran parte de los programas públicos de apoyo a la innovación vayan dirigidos a las PYMES?</div>
+                    <div>2.¿Cómo puede aprovecharse una empresa del uso de internet?</div>
+                    <div>3.¿Qué ventajas tiene para una empresa el uso del correo electrónico?</div>
+                    <div>4.¿Qué es el comercio electrónico?</div>
+                    <div>5.Indaga qué ayudas concretas ofrece el Programa ENISA para emprendedores.</div>
+                    <div>6.Teclea en un buscador “programa neotec” y accede a la web del Centro para el Desarrollo Tecnológico e Industrial. Describe brevemente en qué consiste esta iniciativa.</div>
+                    <div>7.Visita la página web del Consejo Superior de Cámaras de Comercio y entra en el apartado “Crear y consolidar”. Pincha en el apartado “InnoCámaras” y resume en que consiste el programa.</div>
+                </div>
+                <div class="card-actions">
+                    <a href="tus-pdfs/tarea3.pdf" target="_blank" class="btn">Ver PDF</a>
                 </div>
             </div>
         </div>
