@@ -13,77 +13,148 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #000000;
+            background: #0a0a0a;
             color: #ffffff;
             min-height: 100vh;
             padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(138, 43, 226, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .container {
-            max-width: 90%;
-            padding: 20px; /* opcional para no pegar las tarjetas al borde */
+            max-width: 1400px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
-
 
         header {
             margin-bottom: 60px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(255, 0, 255, 0.1) 100%);
+            border: 2px solid transparent;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 255, 255, 0.2);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #00ffff);
+            border-radius: 20px;
+            z-index: -1;
+            animation: rotate 4s linear infinite;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #0a0a0a;
+            border-radius: 18px;
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         h1 {
-            font-size: 2.8em;
-            font-weight: 300;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #00ffff 0%, #ff00ff 100%);
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #00ffff 0%, #ff00ff 50%, #00ffff 100%);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+            letter-spacing: 2px;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .subtitle {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 1.1em;
-            font-weight: 300;
-            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.3em;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
         .section-title {
-            font-size: 1.4em;
-            font-weight: 300;
+            font-size: 2em;
+            font-weight: 600;
             color: #ffffff;
-            margin-bottom: 30px;
-            letter-spacing: 2px;
+            margin-bottom: 50px;
+            letter-spacing: 3px;
             text-transform: uppercase;
             text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #00ffff, #ff00ff);
+            border-radius: 2px;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 4 columnas iguales */
-            gap: 20px; /* espacio entre tarjetas */
-            width: 100%;
-            margin: 0;
-            padding: 20px; /* opcional, para que no pegue las tarjetas a los bordes */
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            padding: 0 20px;
         }
 
         .card {
             display: flex;
             flex-direction: column;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
-            padding: 30px;
-            transition: all 0.3s ease;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.05) 0%, rgba(255, 0, 255, 0.05) 100%);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 35px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(10px);
-            min-height: 400px;
+            backdrop-filter: blur(15px);
+            min-height: 450px;
         }
 
         .card::before {
@@ -92,17 +163,17 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
+            height: 4px;
             background: linear-gradient(90deg, #00ffff 0%, #ff00ff 100%);
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
         }
 
         .card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(0, 255, 255, 0.4);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0, 255, 255, 0.2);
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.12) 0%, rgba(255, 0, 255, 0.12) 100%);
+            border-color: rgba(0, 255, 255, 0.6);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 255, 255, 0.3), 0 0 80px rgba(255, 0, 255, 0.2);
         }
 
         .card:hover::before {
@@ -112,15 +183,32 @@
         .card-header {
             display: flex;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 25px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+            position: relative;
+            z-index: 1;
         }
 
         .card-icon {
-            font-size: 2.5em;
-            filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.6));
+        }
+
+        .card-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: url(#icon-gradient);
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .card-info {
@@ -129,81 +217,176 @@
 
         .card-title {
             color: #ffffff;
-            font-size: 1.2em;
-            font-weight: 400;
-            margin-bottom: 8px;
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 10px;
             line-height: 1.4;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
         }
 
         .card-meta {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.85em;
+            color: rgba(0, 255, 255, 0.8);
+            font-size: 0.9em;
             display: flex;
-            gap: 15px;
-            letter-spacing: 0.5px;
+            gap: 20px;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .card-meta span::before {
+            content: '●';
+            color: #ff00ff;
+            font-size: 0.6em;
         }
 
         .card-description {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.95em;
-            line-height: 1.6;
-            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1em;
+            line-height: 1.7;
+            margin-bottom: 30px;
             text-align: justify;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-description div {
+            margin-bottom: 8px;
         }
 
         .card-actions {
             margin-top: auto;
             display: flex;
-            gap: 12px;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         .btn {
             flex: 1;
-            padding: 12px 20px;
-            background: rgba(255, 255, 255, 0.05);
+            padding: 15px 25px;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.2) 0%, rgba(255, 0, 255, 0.2) 100%);
             color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
+            border: 2px solid rgba(0, 255, 255, 0.5);
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 0.9em;
-            transition: all 0.3s ease;
-            font-weight: 300;
+            font-size: 1em;
+            font-weight: 600;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             text-align: center;
             backdrop-filter: blur(10px);
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn:hover {
-            background: rgba(0, 255, 255, 0.1);
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.3) 0%, rgba(255, 0, 255, 0.3) 100%);
             border-color: #00ffff;
             color: #00ffff;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .btn::after {
+            content: '→';
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover::after {
+            transform: translateX(5px);
+        }
+
+        /* Animación de entrada para las tarjetas */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
+        .card:nth-child(7) { animation-delay: 0.7s; }
+        .card:nth-child(8) { animation-delay: 0.8s; }
+        .card:nth-child(9) { animation-delay: 0.9s; }
+        .card:nth-child(10) { animation-delay: 1s; }
+
+        @media (max-width: 1024px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 2em;
+                font-size: 2.5em;
             }
             
-            .grid {
-                grid-template-columns: 1fr;
+            .subtitle {
+                font-size: 1em;
+            }
+
+            header {
+                padding: 40px 25px;
+            }
+
+            .card {
+                padding: 25px;
+                min-height: 380px;
+            }
+
+            .card-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .card-title {
+                font-size: 1.1em;
             }
 
             .card-meta {
                 flex-direction: column;
-                gap: 5px;
-            }
-
-            header {
-                padding: 30px 20px;
+                gap: 8px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Definición de gradientes SVG -->
+    <svg width="0" height="0" style="position: absolute;">
+        <defs>
+            <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#ff00ff;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+    </svg>
+
     <div class="container">
         <header>
             <h1>Portfolio IPE</h1>
@@ -216,7 +399,11 @@
             <!-- Tarea 1 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="card-icon">📄</span>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                    </div>
                     <div class="card-info">
                         <h3 class="card-title">Tarea 1 - Fortalezas y Debilidades de Nuestra Zona</h3>
                         <div class="card-meta">
@@ -237,7 +424,11 @@
             <!-- Tarea 2 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="card-icon">📄</span>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+                        </svg>
+                    </div>
                     <div class="card-info">
                         <h3 class="card-title">Tarea 2 - Empresa y Tipos</h3>
                         <div class="card-meta">
@@ -261,7 +452,11 @@
             <!-- Tarea 3 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="card-icon">📄</span>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                    </div>
                     <div class="card-info">
                         <h3 class="card-title">Tarea 3 - Tipos de Empresa Según su Forma</h3>
                         <div class="card-meta">
@@ -287,7 +482,11 @@
             <!-- Tarea 4 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="card-icon">📄</span>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/>
+                        </svg>
+                    </div>
                     <div class="card-info">
                         <h3 class="card-title">Tarea 4 - Objetivos Empresariales</h3>
                         <div class="card-meta">
@@ -307,7 +506,11 @@
             <!-- Tarea 5 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="card-icon">📄</span>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 15.01l1.41 1.41L11 14.84V19h2v-4.16l1.59 1.59L16 15.01 12.01 11z"/>
+                        </svg>
+                    </div>
                     <div class="card-info">
                         <h3 class="card-title">Tarea 5 - Como Constituir Legalmente una Empresa</h3>
                         <div class="card-meta">
@@ -318,13 +521,13 @@
                 </div>
                 <div class="card-description">
                     <div>Como constituir legalmente una empresa:</div><br>
-                    <div>1.Trámites administrativos</div>
-                    <div>2.Trámites generales</div>
-                    <div>3.Trámites específicos</div>
-                    <div>4.Trámites en el ayuntamiento</div>
-                    <div>5.Inscripción de la empresa</div>
-                    <div>6.Alta de los trabajadores</div>
-                    <div>7.Convenios de centro de trabajo</div>
+                    <div>1. Trámites administrativos</div>
+                    <div>2. Trámites generales</div>
+                    <div>3. Trámites específicos</div>
+                    <div>4. Trámites en el ayuntamiento</div>
+                    <div>5. Inscripción de la empresa</div>
+                    <div>6. Alta de los trabajadores</div>
+                    <div>7. Convenios de centro de trabajo</div>
                 </div>
                 <div class="card-actions">
                     <a href="PDFs/Tarea_5.pdf" target="_blank" class="btn">Ver PDF</a>
@@ -334,7 +537,11 @@
             <!-- Tarea 6 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="card-icon">📄</span>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                        </svg>
+                    </div>
                     <div class="card-info">
                         <h3 class="card-title">Tarea 6 - Cultura Empresarial</h3>
                         <div class="card-meta">
@@ -349,9 +556,9 @@
                         La cultura de la empresa debe estar presente en todas sus dependencias y a todos los niveles.
                     </div><br>
                     <div>Los tres elementos de una cultura de empresa serían:</div><br>
-                    <div>1.Misión: Propósito último que mueve a la empresa.</div>
-                    <div>2.Valores: Relaciones personales, ética, respeto al medio ambiente.</div>
-                    <div>3.Políticas: Líneas de acción concretas de la empresa.</div><br>
+                    <div>1. Misión: Propósito último que mueve a la empresa.</div>
+                    <div>2. Valores: Relaciones personales, ética, respeto al medio ambiente.</div>
+                    <div>3. Políticas: Líneas de acción concretas de la empresa.</div><br>
                     <div>Elige una empresa, y desarrolla la misión, valores y políticas de esa empresa.</div>
                 </div>
                 <div class="card-actions">
@@ -362,7 +569,11 @@
             <!-- Tarea 7 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="card-icon">📄</span>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/>
+                        </svg>
+                    </div>
                     <div class="card-info">
                         <h3 class="card-title">Tarea 7 - Marketing en la Empresa</h3>
                         <div class="card-meta">
@@ -372,12 +583,12 @@
                     </div>
                 </div>
                 <div class="card-description">
-                    <div>1.Estudio de Diferentes Páginas Web con Especial Calidad</div>
-                    <div>2.Asistentes para Crear tu Propia Página Web</div>
-                    <div>3.Bancos de Fotografías</div>
-                    <div>4.Alojamientos Web Gratuitos</div>
-                    <div>5.Proceso para Adquirir un Dominio</div>
-                    <div>6.Redes Sociales Como Apoyo a una Página Web</div>
+                    <div>1. Estudio de Diferentes Páginas Web con Especial Calidad</div>
+                    <div>2. Asistentes para Crear tu Propia Página Web</div>
+                    <div>3. Bancos de Fotografías</div>
+                    <div>4. Alojamientos Web Gratuitos</div>
+                    <div>5. Proceso para Adquirir un Dominio</div>
+                    <div>6. Redes Sociales Como Apoyo a una Página Web</div>
                 </div>
                 <div class="card-actions">
                     <a href="PDFs/Tarea_7.pdf" target="_blank" class="btn">Ver PDF</a>
@@ -387,7 +598,11 @@
             <!-- Tarea 8 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="card-icon">📄</span>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/>
+                        </svg>
+                    </div>
                     <div class="card-info">
                         <h3 class="card-title">Tarea 8 - Preparación de una Entrevista</h3>
                         <div class="card-meta">
@@ -399,9 +614,9 @@
                 <div class="card-description">
                     <div>Una entrevista de trabajo puede determinar conseguir o no ese trabajo. La entrevista puede prepararse.</div><br>
                     <div>Busca en internet:</div><br>
-                    <div>1.Consejos para el desarrollo de una entrevista.</div>
-                    <div>2.Preguntas frecuentes</div>
-                    <div>3.Preguntas trampa en una entrevista</div>
+                    <div>1. Consejos para el desarrollo de una entrevista.</div>
+                    <div>2. Preguntas frecuentes</div>
+                    <div>3. Preguntas trampa en una entrevista</div>
                 </div>
                 <div class="card-actions">
                     <a href="PDFs/Tarea_8.pdf" target="_blank" class="btn">Ver PDF</a>
@@ -411,7 +626,11 @@
             <!-- Tarea 9 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="card-icon">📄</span>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                    </div>
                     <div class="card-info">
                         <h3 class="card-title">Tarea 9 - Curriculum Vitae</h3>
                         <div class="card-meta">
@@ -432,7 +651,11 @@
             <!-- Tarea 10 -->
             <div class="card">
                 <div class="card-header">
-                    <span class="card-icon">📄</span>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/>
+                        </svg>
+                    </div>
                     <div class="card-info">
                         <h3 class="card-title">Tarea 10 - Empresa e Innovación</h3>
                         <div class="card-meta">
@@ -442,13 +665,13 @@
                     </div>
                 </div>
                 <div class="card-description">
-                    <div>1.¿Cuál es la razón por la que gran parte de los programas públicos de apoyo a la innovación vayan dirigidos a las PYMES?</div><br>
-                    <div>2.¿Cómo puede aprovecharse una empresa del uso de internet?</div><br>
-                    <div>3.¿Qué ventajas tiene para una empresa el uso del correo electrónico?</div><br>
-                    <div>4.¿Qué es el comercio electrónico?</div><br>
-                    <div>5.Indaga qué ayudas concretas ofrece el Programa ENISA para emprendedores.</div><br>
-                    <div>6.Teclea en un buscador “programa neotec” y accede a la web del Centro para el Desarrollo Tecnológico e Industrial. Describe brevemente en qué consiste esta iniciativa.</div><br>
-                    <div>7.Visita la página web del Consejo Superior de Cámaras de Comercio y entra en el apartado “Crear y consolidar”. Pincha en el apartado “InnoCámaras” y resume en que consiste el programa.</div>
+                    <div>1. ¿Cuál es la razón por la que gran parte de los programas públicos de apoyo a la innovación vayan dirigidos a las PYMES?</div><br>
+                    <div>2. ¿Cómo puede aprovecharse una empresa del uso de internet?</div><br>
+                    <div>3. ¿Qué ventajas tiene para una empresa el uso del correo electrónico?</div><br>
+                    <div>4. ¿Qué es el comercio electrónico?</div><br>
+                    <div>5. Indaga qué ayudas concretas ofrece el Programa ENISA para emprendedores.</div><br>
+                    <div>6. Teclea en un buscador "programa neotec" y accede a la web del Centro para el Desarrollo Tecnológico e Industrial. Describe brevemente en qué consiste esta iniciativa.</div><br>
+                    <div>7. Visita la página web del Consejo Superior de Cámaras de Comercio y entra en el apartado "Crear y consolidar". Pincha en el apartado "InnoCámaras" y resume en que consiste el programa.</div>
                 </div>
                 <div class="card-actions">
                     <a href="PDFs/Tarea_10.pdf" target="_blank" class="btn">Ver PDF</a>
